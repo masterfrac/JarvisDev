@@ -1,19 +1,30 @@
 package com.jarvisdev.scanner;
 
+import com.jarvisdev.models.HardwareInfo;
+import com.jarvisdev.scanner.hardware.HardwareScanner;
+
 public class SystemScanner {
 
     public void scanSystem() {
 
-        System.out.println("================================");
-        System.out.println("Scanning Your Computer...");
-        System.out.println("================================");
+        HardwareScanner hardwareScanner = new HardwareScanner();
 
-        System.out.println("Operating System : " + System.getProperty("os.name"));
-        System.out.println("OS Version       : " + System.getProperty("os.version"));
-        System.out.println("Java Version     : " + System.getProperty("java.version"));
-        System.out.println("Java Vendor      : " + System.getProperty("java.vendor"));
-        System.out.println("User             : " + System.getProperty("user.name"));
-        System.out.println("Home Directory   : " + System.getProperty("user.home"));
+        HardwareInfo info = hardwareScanner.scanHardware();
+
+        System.out.println();
+        System.out.println("========== Hardware ==========");
+
+        System.out.println("CPU Cores      : " + info.getCpuCores());
+
+        System.out.println("Total Memory   : " + info.getTotalMemory() + " MB");
+
+        System.out.println("Free Memory    : " + info.getFreeMemory() + " MB");
+
+        System.out.println("Max Memory     : " + info.getMaxMemory() + " MB");
+
+        System.out.println("Disk Size      : " + info.getTotalDisk() + " GB");
+
+        System.out.println("Free Disk      : " + info.getFreeDisk() + " GB");
 
     }
 }
