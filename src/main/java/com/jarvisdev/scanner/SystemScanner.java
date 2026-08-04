@@ -1,5 +1,5 @@
 package com.jarvisdev.scanner;
-
+import com.jarvisdev.scanner.software.SoftwareScanner;
 import com.jarvisdev.models.HardwareInfo;
 import com.jarvisdev.scanner.hardware.HardwareScanner;
 
@@ -25,6 +25,8 @@ public class SystemScanner {
         System.out.println("Disk Size      : " + info.getTotalDisk() + " GB");
 
         System.out.println("Free Disk      : " + info.getFreeDisk() + " GB");
+        SoftwareScanner softwareScanner = new SoftwareScanner();
 
+        softwareScanner.scanSoftware();
     }
 }
