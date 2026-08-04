@@ -8,7 +8,8 @@ public class SoftwareScanner {
     public void scanSoftware() {
 
         System.out.println("\n========== Software ==========\n");
-
+        checkSoftware("Maven", "mvn -version");
+        checkSoftware("Python", "python --version");
         checkSoftware("Java", "java -version");
         checkSoftware("Git", "git --version");
     }
