@@ -8,6 +8,8 @@ public class SoftwareScanner {
     public void scanSoftware() {
 
         System.out.println("\n========== Software ==========\n");
+        checkSoftware("Docker", "docker --version");
+        checkSoftware("Node.js", "node --version");
         checkSoftware("Maven", "mvn -version");
         checkSoftware("Python", "python --version");
         checkSoftware("Java", "java -version");
