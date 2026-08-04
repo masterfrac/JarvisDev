@@ -36,6 +36,14 @@ public class ApplicationScanner {
                         "C:\\Users\\" + user + "\\AppData\\Local\\Google\\Chrome"
                 }
         );
+        checkApplication(
+                "Mozilla Firefox",
+                new String[]{
+                        "C:\\Program Files\\Mozilla Firefox",
+                        "C:\\Program Files (x86)\\Mozilla Firefox",
+                        "C:\\Users\\" + user + "\\AppData\\Local\\Mozilla Firefox"
+                }
+        );
     }
 
     private void checkApplication(String name, String[] paths) {
