@@ -9,28 +9,38 @@ public class SoftwareScanner {
 
         System.out.println("\n========== Software ==========\n");
 
-        checkJava();
+        checkSoftware("Java", "java -version");
+        checkSoftware("Git", "git --version");
     }
 
-    private void checkJava() {
+    private void checkSoftware(String name, String command) {
 
         try {
 
-            Process process = Runtime.getRuntime().exec("java -version");
+            Process process = Runtime.getRuntime().exec(command);
 
-            BufferedReader error =
+            BufferedReader reader =
                     new BufferedReader(new InputStreamReader(process.getErrorStream()));
 
-            String version = error.readLine();
+            String output = reader.readLine();
 
-            if (version != null) {
-                System.out.println("Java : " + version);
+            if (output == null) {
+
+                reader = new BufferedReader(
+                        new InputStreamReader(process.getInputStream()));
+
+                output = reader.readLine();
+            }
+
+            if (output != null) {
+                System.out.printf("%-12s : %s%n", name, output);
             } else {
-                System.out.println("Java : Not Installed");
+                System.out.printf("%-12s : Installed%n", name);
             }
 
         } catch (Exception e) {
-            System.out.println("Java : Not Installed");
+
+            System.out.printf("%-12s : Not Installed%n", name);
         }
     }
 }
