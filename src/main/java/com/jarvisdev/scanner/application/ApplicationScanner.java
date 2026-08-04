@@ -28,6 +28,14 @@ public class ApplicationScanner {
                         "C:\\Users\\" + user + "\\AppData\\Local\\Programs\\Microsoft VS Code"
                 }
         );
+        checkApplication(
+                "Google Chrome",
+                new String[]{
+                        "C:\\Program Files\\Google\\Chrome",
+                        "C:\\Program Files (x86)\\Google\\Chrome",
+                        "C:\\Users\\" + user + "\\AppData\\Local\\Google\\Chrome"
+                }
+        );
     }
 
     private void checkApplication(String name, String[] paths) {
