@@ -20,6 +20,14 @@ public class ApplicationScanner {
                         "C:\\Users\\" + user + "\\AppData\\Local\\JetBrains\\Toolbox"
                 }
         );
+        checkApplication(
+                "VS Code",
+                new String[] {
+                        "C:\\Program Files\\Microsoft VS Code",
+                        "C:\\Program Files (x86)\\Microsoft VS Code",
+                        "C:\\Users\\" + user + "\\AppData\\Local\\Programs\\Microsoft VS Code"
+                }
+        );
     }
 
     private void checkApplication(String name, String[] paths) {
