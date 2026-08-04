@@ -43,6 +43,37 @@ public class ApplicationScanner {
                         "C:\\Program Files (x86)\\Mozilla Firefox",
                         "C:\\Users\\" + user + "\\AppData\\Local\\Mozilla Firefox"
                 }
+        );checkApplication(
+                "Android Studio",
+                new String[]{
+                        "C:\\Program Files\\Android\\Android Studio",
+                        "C:\\Users\\" + user + "\\AppData\\Local\\Android\\Android Studio"
+                }
+        );checkApplication(
+                "Eclipse IDE",
+                new String[]{
+                        "C:\\Program Files\\Eclipse Adoptium",
+                        "C:\\Program Files\\eclipse",
+                        "C:\\eclipse"
+                }
+        );checkApplication(
+                "Microsoft Edge",
+                new String[]{
+                        "C:\\Program Files (x86)\\Microsoft\\Edge",
+                        "C:\\Program Files\\Microsoft\\Edge"
+                }
+        );checkApplication(
+                "Notepad++",
+                new String[]{
+                        "C:\\Program Files\\Notepad++",
+                        "C:\\Program Files (x86)\\Notepad++"
+                }
+        );checkApplication(
+                "GitHub Desktop",
+                new String[]{
+                        "C:\\Users\\" + user + "\\AppData\\Local\\GitHubDesktop",
+                        "C:\\Program Files\\GitHub Desktop"
+                }
         );
     }
 
