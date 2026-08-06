@@ -1,19 +1,26 @@
 package com.jarvisdev.scanner.software;
 
+import com.jarvisdev.models.SoftwareInfo;
+import com.jarvisdev.repository.SoftwareRepository;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class SoftwareScanner {
 
     public void scanSoftware() {
 
         System.out.println("\n========== Software ==========\n");
-        checkSoftware("Docker", "docker --version");
-        checkSoftware("Node.js", "node --version");
-        checkSoftware("Maven", "mvn -version");
-        checkSoftware("Python", "python --version");
-        checkSoftware("Java", "java -version");
-        checkSoftware("Git", "git --version");
+
+        List<SoftwareInfo> softwareList = SoftwareRepository.getSoftwareList();
+
+        for (SoftwareInfo software : softwareList) {
+            checkSoftware(
+                    software.getName(),
+                    software.getCommand()
+            );
+        }
     }
 
     private void checkSoftware(String name, String command) {
@@ -22,13 +29,12 @@ public class SoftwareScanner {
 
             Process process = Runtime.getRuntime().exec(command);
 
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(process.getErrorStream()));
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(process.getErrorStream()));
 
             String output = reader.readLine();
 
             if (output == null) {
-
                 reader = new BufferedReader(
                         new InputStreamReader(process.getInputStream()));
 
@@ -36,14 +42,13 @@ public class SoftwareScanner {
             }
 
             if (output != null) {
-                System.out.printf("%-12s : %s%n", name, output);
+                System.out.printf("%-15s : %s%n", name, output);
             } else {
-                System.out.printf("%-12s : Installed%n", name);
+                System.out.printf("%-15s : Installed%n", name);
             }
 
         } catch (Exception e) {
-
-            System.out.printf("%-12s : Not Installed%n", name);
+            System.out.printf("%-15s : Not Installed%n", name);
         }
     }
 }
