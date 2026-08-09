@@ -1,49 +1,70 @@
 # 🤖 JarvisDev AI
 
-An AI-powered Developer Assistant built with Java.
+A Java-based System Diagnostics & Developer Assistant Platform.
 
 ---
 
 ## 📌 About
 
-JarvisDev AI is an autonomous AI agent that can:
+JarvisDev AI helps developers analyze and understand their system environment.
 
-- Scan your computer
-- Detect installed software
-- Install missing tools
-- Generate Java projects
-- Debug errors
-- Build applications automatically
+Current capabilities include:
+
+- 🖥️ Hardware Scanning
+- ⚙️ System Information Detection
+- 📦 Software Detection
+- 🧩 Application Detection
+- ❤️ Health Analysis
+- 📄 TXT Report Generation
+- 📊 CSV Report Generation
+- 🗂️ JSON Report Generation
 
 ---
 
 ## 🚀 Current Version
 
-**v0.1 - System Scanner**
+### v0.3 - Software Scanner
 
-### Features
+### Completed Features
 
-- ✅ Detect Operating System
-- ✅ Detect OS Version
-- ✅ Detect Java Version
-- ✅ Detect Java Vendor
-- ✅ Detect Current User
-- ✅ Detect Home Directory
+| Feature | Status |
+|----------|---------|
+| System Scanner | ✅ |
+| Hardware Scanner | ✅ |
+| Software Scanner | ✅ |
+| Application Scanner | ✅ |
+| Health Analyzer | ✅ |
+| TXT Reports | ✅ |
+| JSON Reports | ✅ |
+| CSV Reports | ✅ |
 
 ---
 
 ## 🛠️ Technology Stack
 
-- Java 25 LTS
+- Java 25
 - Maven
 - Git
 - IntelliJ IDEA
 
 ---
 
-## 📂 Project Structure
+## 📸 Screenshots
 
-```text
+### Dashboard
+
+![Dashboard](screenshots/dashboard-v1.png)
+
+### Health Analysis
+
+![Health Analysis](screenshots/health-analysis-v1.png)
+
+### Generated Reports
+
+![Reports](screenshots/reports-generated-v1.png)
+
+---
+
 ## 📂 Project Structure
 
 ```text
@@ -73,16 +94,12 @@ jarvisDev
 │
 │               ├── scanner
 │               │   ├── SystemScanner.java
-│               │   │
 │               │   ├── hardware
 │               │   │   └── HardwareScanner.java
-│               │   │
-│               │   ├── system
-│               │   │   └── SystemInfoScanner.java
-│               │   │
 │               │   ├── software
 │               │   │   └── SoftwareScanner.java
-│               │   │
+│               │   ├── system
+│               │   │   └── SystemInfoScanner.java
 │               │   └── application
 │               │       └── ApplicationScanner.java
 │
@@ -107,20 +124,9 @@ jarvisDev
 ├── pom.xml
 └── .gitignore
 ```
-```
-## Dashboard
-
-![Dashboard](screenshots/dashboard-v1.png)
-
-## Health Analysis
-
-![Health Analysis](screenshots/health-analysis-v1.png)
-
-## Generated Reports
-
-![Reports](screenshots/reports-generated-v1.png)
 
 ---
+
 ## 🗺️ Roadmap
 
 ### v0.1
@@ -141,6 +147,24 @@ jarvisDev
 ### v1.0
 - 🤖 AI Developer Agent
 
+---
+
+## ▶️ Run Project
+
+```bash
+git clone <repository-url>
+cd jarvisDev
+mvn clean install
+mvn exec:java
+```
+
+Or run:
+
+```text
+Main.java
+```
+
+directly from IntelliJ IDEA.
 
 ---
 
@@ -148,4 +172,4 @@ jarvisDev
 
 **Vikash Saroj**
 
----
+B.Tech CSE | Java Developer | System Software Enthusiast
