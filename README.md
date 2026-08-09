@@ -44,39 +44,93 @@ JarvisDev AI is an autonomous AI agent that can:
 ## 📂 Project Structure
 
 ```text
+## 📂 Project Structure
+
+```text
 jarvisDev
 │
 ├── src
 │   └── main
 │       └── java
 │           └── com.jarvisdev
-│               ├── Main.java
-│               ├── scanner
-│               │   └── SystemScanner.java
-│               ├── installer
-│               ├── ai
-│               ├── plugins
-│               ├── utils
-│               ├── models
-│               └── core
 │
-├── pom.xml
+│               ├── Main.java
+│
+│               ├── analysis
+│               │   ├── HealthAnalyzer.java
+│               │   └── HealthReport.java
+│
+│               ├── models
+│               │   ├── HardwareInfo.java
+│               │   ├── SystemInfo.java
+│               │   ├── SoftwareInfo.java
+│               │   ├── SoftwareResult.java
+│               │   └── ApplicationInfo.java
+│
+│               ├── repository
+│               │   ├── SoftwareRepository.java
+│               │   └── ApplicationRepository.java
+│
+│               ├── scanner
+│               │   ├── SystemScanner.java
+│               │   │
+│               │   ├── hardware
+│               │   │   └── HardwareScanner.java
+│               │   │
+│               │   ├── system
+│               │   │   └── SystemInfoScanner.java
+│               │   │
+│               │   ├── software
+│               │   │   └── SoftwareScanner.java
+│               │   │
+│               │   └── application
+│               │       └── ApplicationScanner.java
+│
+│               ├── report
+│               │   ├── ReportData.java
+│               │   ├── ReportGenerator.java
+│               │   ├── TxtReportWriter.java
+│               │   ├── JsonReportWriter.java
+│               │   └── CsvReportWriter.java
+│
+│               └── utils
+│                   ├── ConsoleUI.java
+│                   ├── DashboardPrinter.java
+│                   └── ProgressBar.java
+│
+├── screenshots
+│   ├── dashboard-v1.png
+│   ├── health-analysis-v1.png
+│   └── reports-generated-v1.png
+│
 ├── README.md
+├── pom.xml
 └── .gitignore
 ```
+```
+## Dashboard
+
+![Dashboard](screenshots/dashboard-v1.png)
+
+## Health Analysis
+
+![Health Analysis](screenshots/health-analysis-v1.png)
+
+## Generated Reports
+
+![Reports](screenshots/reports-generated-v1.png)
 
 ---
-
 ## 🗺️ Roadmap
 
 ### v0.1
 - ✅ System Scanner
 
 ### v0.2
-- ⏳ Hardware Scanner
+- ✅ Hardware Scanner
 
 ### v0.3
-- ⏳ Software Scanner
+- ✅ Software Scanner
 
 ### v0.4
 - ⏳ Auto Installer
@@ -86,6 +140,7 @@ jarvisDev
 
 ### v1.0
 - 🤖 AI Developer Agent
+
 
 ---
 

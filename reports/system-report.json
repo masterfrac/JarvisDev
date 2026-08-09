@@ -1,0 +1,18 @@
+{
+  "system": {
+    "computerName": "LAPTOP-U9BRQ3T3",
+    "osName": "Windows 11",
+    "osVersion": "10.0"
+  },
+  "hardware": {
+    "cpuCores": 12,
+    "totalMemory": 7365,
+    "freeMemory": 462,
+    "totalDisk": 175,
+    "freeDisk": 13
+  },
+  "health": {
+    "score": 60,
+    "status": "Average"
+  }
+}

@@ -14,7 +14,7 @@ HARDWARE
 ------------------------------
 CPU Cores : 12
 Total Memory : 7365 MB
-Free Memory : 315 MB
+Free Memory : 462 MB
 Disk Size : 175 GB
 Free Disk : 13 GB
 
