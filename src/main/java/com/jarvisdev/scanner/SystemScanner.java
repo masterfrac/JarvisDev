@@ -5,6 +5,7 @@ import com.jarvisdev.analysis.HealthReport;
 import com.jarvisdev.models.HardwareInfo;
 import com.jarvisdev.models.SystemInfo;
 import com.jarvisdev.report.ReportData;
+import com.jarvisdev.report.ReportGenerator;
 import com.jarvisdev.scanner.application.ApplicationScanner;
 import com.jarvisdev.scanner.hardware.HardwareScanner;
 import com.jarvisdev.scanner.software.SoftwareScanner;
@@ -41,6 +42,18 @@ public class SystemScanner {
         // Applications
         new ApplicationScanner().scanApplications();
 
+        ReportData reportData = new ReportData();
+
+        reportData.setHardwareInfo(hardwareInfo);
+
+        reportData.setSystemInfo(systemInfo);
+
+        reportData.setHealthReport(report);
+
+        ReportGenerator generator =
+                new ReportGenerator();
+
+        generator.generate(reportData);
 
 
     }
