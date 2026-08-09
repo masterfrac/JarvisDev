@@ -1,5 +1,5 @@
 package com.jarvisdev.scanner.application;
-
+import com.jarvisdev.utils.ConsoleUI;
 import com.jarvisdev.models.ApplicationInfo;
 
 import java.io.File;
@@ -9,8 +9,7 @@ public class ApplicationScanner {
 
     public void scanApplications() {
 
-        System.out.println("\n========== Applications ==========\n");
-
+        ConsoleUI.printSection("Applications");
         String user = System.getProperty("user.name");
 
         List<ApplicationInfo> applications = List.of(

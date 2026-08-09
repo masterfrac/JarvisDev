@@ -2,6 +2,7 @@ package com.jarvisdev.scanner.software;
 
 import com.jarvisdev.models.SoftwareInfo;
 import com.jarvisdev.repository.SoftwareRepository;
+import com.jarvisdev.utils.ConsoleUI;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,7 +12,7 @@ public class SoftwareScanner {
 
     public void scanSoftware() {
 
-        System.out.println("\n========== Software ==========\n");
+        ConsoleUI.printSection("Software");
 
         List<SoftwareInfo> softwareList = SoftwareRepository.getSoftwareList();
 

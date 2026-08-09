@@ -12,5 +12,6 @@ public class Main {
         scanner.scanSystem();
 
         ConsoleUI.printFooter();
+
     }
 }
