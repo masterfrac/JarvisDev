@@ -1,0 +1,4 @@
+package com.jarvisdev.report;
+
+public class JsonReportWriter {
+}
