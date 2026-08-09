@@ -1,0 +1,29 @@
+=====================================
+         JARVISDEV AI REPORT
+=====================================
+
+SYSTEM INFORMATION
+------------------------------
+Computer Name : LAPTOP-U9BRQ3T3
+Operating System : Windows 11
+OS Version : 10.0
+Architecture : amd64
+Java Version : 25.0.2
+
+HARDWARE
+------------------------------
+CPU Cores : 12
+Total Memory : 7365 MB
+Free Memory : 315 MB
+Disk Size : 175 GB
+Free Disk : 13 GB
+
+SYSTEM HEALTH
+------------------------------
+Score : 60/100
+Status : Average
+
+Recommendations
+------------------------------
+- High RAM usage. Close unnecessary applications.
+- Disk is almost full. Free some storage.
