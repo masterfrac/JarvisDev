@@ -1,17 +1,21 @@
 package com.jarvisdev;
 
-import com.jarvisdev.scanner.SystemScanner;
-import com.jarvisdev.utils.ConsoleUI;
+import com.jarvisdev.generator.ProjectGenerator;
+import com.jarvisdev.generator.ProjectTemplate;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ConsoleUI.printHeader();
+        ProjectTemplate template =
+                new ProjectTemplate(
+                        "DemoProject",
+                        "Java"
+                );
 
-        SystemScanner scanner = new SystemScanner();
-        scanner.scanSystem();
+        ProjectGenerator generator =
+                new ProjectGenerator();
 
-        ConsoleUI.printFooter();
+        generator.generate(template);
     }
 }
