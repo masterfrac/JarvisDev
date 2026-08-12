@@ -1,4 +1,8 @@
 package com.jarvisdev.installer;
 
-public class ToolInstaller {
+public interface ToolInstaller {
+
+    boolean isInstalled();
+
+    String getToolName();
 }

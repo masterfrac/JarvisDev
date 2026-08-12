@@ -1,22 +1,23 @@
 package com.jarvisdev;
 
-import com.jarvisdev.generator.ProjectGenerator;
-import com.jarvisdev.generator.ProjectTemplate;
-import com.jarvisdev.generator.ProjectWizard;
+import com.jarvisdev.installer.GitInstaller;
+import com.jarvisdev.installer.JdkInstaller;
+import com.jarvisdev.installer.MavenInstaller;
+import com.jarvisdev.installer.ToolInstaller;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ProjectWizard wizard =
-                new ProjectWizard();
+        ToolInstaller git = new GitInstaller();
+        ToolInstaller maven = new MavenInstaller();
+        ToolInstaller jdk = new JdkInstaller();
 
-        ProjectTemplate template =
-                wizard.start();
+        System.out.println("===== TOOL CHECKER =====");
+        System.out.println();
 
-        ProjectGenerator generator =
-                new ProjectGenerator();
-
-        generator.generate(template);
+        System.out.println("Git   : " + git.isInstalled());
+        System.out.println("Maven : " + maven.isInstalled());
+        System.out.println("JDK   : " + jdk.isInstalled());
     }
 }
