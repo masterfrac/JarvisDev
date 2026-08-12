@@ -13,29 +13,20 @@ public class InstallerManager {
         );
 
         System.out.println();
-        System.out.println(
-                "===== TOOL CHECKER ====="
-        );
-        System.out.println();
+        System.out.println("===== TOOL CHECKER =====");
 
         for (ToolInstaller tool : tools) {
 
-            if (tool.isInstalled()) {
+            String status =
+                    tool.isInstalled()
+                            ? "Installed"
+                            : "Missing";
 
-                System.out.println(
-                        "✅ " + tool.getToolName()
-                                + " Installed"
-                );
-
-            } else {
-
-                System.out.println(
-                        "❌ " + tool.getToolName()
-                                + " Missing"
-                );
-
-                tool.install();
-            }
+            System.out.printf(
+                    "%-10s : %s%n",
+                    tool.getToolName(),
+                    status
+            );
         }
     }
 }
