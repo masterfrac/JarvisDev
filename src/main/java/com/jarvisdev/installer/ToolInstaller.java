@@ -4,5 +4,7 @@ public interface ToolInstaller {
 
     boolean isInstalled();
 
+    void install();
+
     String getToolName();
 }

@@ -30,8 +30,15 @@ public class MavenInstaller implements ToolInstaller {
     }
 
     @Override
-    public String getToolName() {
+    public void install() {
+        System.out.println("Installing Maven...");
 
+        System.out.println("⚠ Manual installation required.");
+
+    }
+
+    @Override
+    public String getToolName() {
         return "Maven";
     }
 }
