@@ -1,22 +1,16 @@
 package com.jarvisdev;
 
-import com.jarvisdev.generator.ProjectGenerator;
-import com.jarvisdev.generator.ProjectTemplate;
-import com.jarvisdev.generator.ProjectWizard;
+import com.jarvisdev.plugins.PluginManager;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ProjectWizard wizard =
-                new ProjectWizard();
+        PluginManager manager =
+                new PluginManager();
 
-        ProjectTemplate template =
-                wizard.start();
+        manager.loadPlugins();
 
-        ProjectGenerator generator =
-                new ProjectGenerator();
-
-        generator.generate(template);
+        manager.runPlugins();
     }
 }
