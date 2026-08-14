@@ -33,13 +33,18 @@ public class GitInstaller implements ToolInstaller {
     public void install() {
 
         System.out.println("Installing Git...");
-
         System.out.println("⚠ Manual installation required.");
-
     }
 
     @Override
     public String getToolName() {
+
         return "Git";
+    }
+
+    @Override
+    public String getDownloadLink() {
+
+        return DownloadLinks.GIT;
     }
 }

@@ -7,4 +7,6 @@ public interface ToolInstaller {
     void install();
 
     String getToolName();
+
+    String getDownloadLink();
 }

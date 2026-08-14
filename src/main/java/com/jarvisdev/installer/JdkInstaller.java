@@ -21,13 +21,20 @@ public class JdkInstaller implements ToolInstaller {
 
     @Override
     public void install() {
-        System.out.println("Installing JDK...");
 
+        System.out.println("Installing JDK...");
         System.out.println("⚠ Manual installation required.");
     }
 
     @Override
     public String getToolName() {
+
         return "JDK";
+    }
+
+    @Override
+    public String getDownloadLink() {
+
+        return DownloadLinks.JDK;
     }
 }
