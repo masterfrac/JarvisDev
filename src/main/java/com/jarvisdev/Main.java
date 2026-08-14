@@ -3,42 +3,20 @@ package com.jarvisdev;
 import com.jarvisdev.generator.ProjectGenerator;
 import com.jarvisdev.generator.ProjectTemplate;
 import com.jarvisdev.generator.ProjectWizard;
-import com.jarvisdev.installer.InstallerManager;
-
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        ProjectWizard wizard =
+                new ProjectWizard();
 
-        System.out.println("===== JARVISDEV AI =====");
-        System.out.println("1. Tool Checker");
-        System.out.println("2. Project Generator");
-        System.out.print("Choice: ");
+        ProjectTemplate template =
+                wizard.start();
 
-        int choice = scanner.nextInt();
+        ProjectGenerator generator =
+                new ProjectGenerator();
 
-        if (choice == 1) {
-
-            InstallerManager manager =
-                    new InstallerManager();
-
-            manager.checkTools();
-
-        } else if (choice == 2) {
-
-            ProjectWizard wizard =
-                    new ProjectWizard();
-
-            ProjectTemplate template =
-                    wizard.start();
-
-            ProjectGenerator generator =
-                    new ProjectGenerator();
-
-            generator.generate(template);
-        }
+        generator.generate(template);
     }
 }
