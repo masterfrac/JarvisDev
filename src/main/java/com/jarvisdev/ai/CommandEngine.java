@@ -4,39 +4,75 @@ import com.jarvisdev.generator.ProjectGenerator;
 import com.jarvisdev.generator.ProjectTemplate;
 import com.jarvisdev.generator.ProjectWizard;
 import com.jarvisdev.installer.InstallerManager;
+import com.jarvisdev.scanner.SystemScanner;
 
 public class CommandEngine {
 
+    private final IntentRecognizer recognizer =
+            new IntentRecognizer();
+
     public void execute(Command command) {
 
-        String input =
-                command.getInput().toLowerCase();
+        IntentType intent =
+                recognizer.recognize(
+                        command.getInput()
+                );
 
-        if (input.contains("tools")) {
+        switch (intent) {
 
-            InstallerManager manager =
-                    new InstallerManager();
+            case SYSTEM_SCAN:
 
-            manager.checkTools();
+                new SystemScanner()
+                        .scanSystem();
+                break;
 
-        } else if (input.contains("project")) {
+            case TOOL_CHECK:
 
-            ProjectWizard wizard =
-                    new ProjectWizard();
+                new InstallerManager()
+                        .checkTools();
+                break;
 
-            ProjectTemplate template =
-                    wizard.start();
+            case PROJECT_GENERATION:
 
-            ProjectGenerator generator =
-                    new ProjectGenerator();
+                ProjectWizard wizard =
+                        new ProjectWizard();
 
-            generator.generate(template);
+                ProjectTemplate template =
+                        wizard.start();
 
-        } else {
+                new ProjectGenerator()
+                        .generate(template);
 
-            System.out.println(
-                    "Unknown Command"
-            );
+                break;
+
+            case HELP:
+
+                System.out.println("""
+                        
+                        Examples:
+                        
+                        Scan my laptop
+                        Check if Maven is installed
+                        Create a Spring Boot project
+                        Generate a web application
+                        Exit
+                        
+                        """);
+                break;
+
+            case EXIT:
+
+                System.out.println(
+                        "Goodbye from JarvisDev AI"
+                );
+
+                System.exit(0);
+
+            default:
+
+                System.out.println(
+                        "Sorry, I didn't understand that."
+                );
         }
     }
 }
