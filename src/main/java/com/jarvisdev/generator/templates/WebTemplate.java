@@ -2,13 +2,13 @@ package com.jarvisdev.generator.templates;
 
 import java.io.File;
 
-public class WebTemplate {
+public class WebTemplate implements ProjectTemplate {
 
-    public void create(File projectFolder) {
+    @Override
+    public void generate(File projectDir) {
 
-        new File(projectFolder, "src").mkdir();
-        new File(projectFolder, "css").mkdir();
-        new File(projectFolder, "js").mkdir();
+        new File(projectDir, "src").mkdirs();
+        new File(projectDir, "public").mkdirs();
 
         System.out.println("Web project created.");
     }

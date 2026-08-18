@@ -2,11 +2,13 @@ package com.jarvisdev.generator.templates;
 
 import java.io.File;
 
-public class ConsoleTemplate {
+public class ConsoleTemplate implements ProjectTemplate {
 
-    public void create(File projectFolder) {
+    @Override
+    public void generate(File projectDir) {
 
-        new File(projectFolder, "src").mkdir();
+        File srcFolder = new File(projectDir, "src");
+        srcFolder.mkdirs();
 
         System.out.println("Console project created.");
     }

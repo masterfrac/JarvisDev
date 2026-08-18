@@ -1,4 +1,7 @@
 package com.jarvisdev.generator.templates;
 
-public class ProjectTemplate {
+import java.io.File;
+
+public interface ProjectTemplate {
+    void generate(File projectDir);
 }
