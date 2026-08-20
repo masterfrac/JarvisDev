@@ -1,32 +1,45 @@
 package com.jarvisdev.plugins;
 
+import com.jarvisdev.ai.Command;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PluginManager {
 
-    private final List<Plugin> plugins =
-            new ArrayList<>();
+    private final List<Plugin> plugins;
 
-    public void loadPlugins() {
+    public PluginManager() {
 
-        plugins.add(new GitPlugin());
-        plugins.add(new MavenPlugin());
-        plugins.add(new SpringPlugin());
+        plugins = new ArrayList<>();
     }
 
-    public void runPlugins() {
+    public void registerPlugin(
+            Plugin plugin) {
+
+        plugins.add(plugin);
+    }
+
+    public void executePlugin(
+            Command command) {
 
         for (Plugin plugin : plugins) {
 
-            System.out.println(
-                    "Loading: "
-                            + plugin.getName()
-            );
+            if (plugin.canHandle(command)) {
 
-            plugin.execute();
+                System.out.println(
+                        "Using Plugin: "
+                                + plugin.getName()
+                );
 
-            System.out.println();
+                plugin.execute(command);
+
+                return;
+            }
         }
+
+        System.out.println(
+                "No suitable plugin found."
+        );
     }
 }
