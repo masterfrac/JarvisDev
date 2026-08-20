@@ -1,4 +1,4 @@
-package com.jarvisdev.ai.TaskExecutor;
+package com.jarvisdev.ai.execution;
 
 import com.jarvisdev.ai.Command;
 
