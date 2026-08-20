@@ -1,5 +1,7 @@
 package com.jarvisdev.plugins;
 
+import com.jarvisdev.ai.Command;
+
 public class MavenPlugin implements Plugin {
 
     @Override
@@ -8,10 +10,12 @@ public class MavenPlugin implements Plugin {
     }
 
     @Override
-    public void execute() {
+    public boolean canHandle(Command command) {
+        return true;
+    }
 
-        System.out.println(
-                "Maven Plugin Executed"
-        );
+    @Override
+    public void execute(Command command) {
+        System.out.println("Executing Maven operations...");
     }
 }

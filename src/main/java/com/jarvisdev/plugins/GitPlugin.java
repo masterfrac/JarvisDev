@@ -1,5 +1,7 @@
 package com.jarvisdev.plugins;
 
+import com.jarvisdev.ai.Command;
+
 public class GitPlugin implements Plugin {
 
     @Override
@@ -8,10 +10,12 @@ public class GitPlugin implements Plugin {
     }
 
     @Override
-    public void execute() {
+    public boolean canHandle(Command command) {
+        return true;
+    }
 
-        System.out.println(
-                "Git Plugin Executed"
-        );
+    @Override
+    public void execute(Command command) {
+        System.out.println("Executing Git operations...");
     }
 }
