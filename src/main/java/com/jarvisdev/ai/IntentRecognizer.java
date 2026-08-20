@@ -2,48 +2,59 @@ package com.jarvisdev.ai;
 
 public class IntentRecognizer {
 
-    public IntentType recognize(String input) {
+    public Command recognize(String input) {
 
-        input = input.toLowerCase();
+        String text = input.toLowerCase();
 
-        if (input.contains("scan")
-                || input.contains("system")
-                || input.contains("computer")
-                || input.contains("laptop")
-                || input.contains("machine")) {
+        Command command = new Command();
 
-            return IntentType.SYSTEM_SCAN;
+        command.setRawInput(input);
+
+        // Detect Intent
+        if (text.contains("create")) {
+
+            command.setIntent(
+                    IntentType.PROJECT_GENERATION
+            );
+
+            // Detect Project Type
+            if (text.contains("spring")) {
+                command.setProjectType("spring");
+            }
+            else if (text.contains("web")) {
+                command.setProjectType("web");
+            }
+            else {
+                command.setProjectType("console");
+            }
+
+            // Detect Project Name
+            String[] words =
+                    text.split(" ");
+
+            if (words.length > 0) {
+
+                command.setProjectName(
+                        words[words.length - 1]
+                );
+            }
+
+            return command;
         }
 
-        if (input.contains("maven")
-                || input.contains("git")
-                || input.contains("jdk")
-                || input.contains("java")
-                || input.contains("tool")) {
+        if (text.contains("check tools")) {
 
-            return IntentType.TOOL_CHECK;
+            command.setIntent(
+                    IntentType.TOOL_CHECK
+            );
+
+            return command;
         }
 
-        if (input.contains("project")
-                || input.contains("application")
-                || input.contains("app")
-                || input.contains("generate")
-                || input.contains("create")) {
+        command.setIntent(
+                IntentType.UNKNOWN
+        );
 
-            return IntentType.PROJECT_GENERATION;
-        }
-
-        if (input.contains("help")) {
-            return IntentType.HELP;
-        }
-
-        if (input.contains("exit")
-                || input.contains("quit")
-                || input.contains("bye")) {
-
-            return IntentType.EXIT;
-        }
-
-        return IntentType.UNKNOWN;
+        return command;
     }
 }
