@@ -4,6 +4,24 @@ public class CommandEngine {
 
     public void execute(Command command) {
 
+        if (command == null) {
+
+            System.out.println(
+                    "Command cannot be null."
+            );
+
+            return;
+        }
+
+        if (command.getIntent() == null) {
+
+            System.out.println(
+                    "Unable to determine command intent."
+            );
+
+            return;
+        }
+
         switch (command.getIntent()) {
 
             case PROJECT_GENERATION:
@@ -39,7 +57,7 @@ public class CommandEngine {
             case HELP:
 
                 System.out.println(
-                        "Showing help..."
+                        "Showing available commands..."
                 );
 
                 break;
@@ -57,7 +75,7 @@ public class CommandEngine {
             default:
 
                 System.out.println(
-                        "Unknown command"
+                        "I don't understand that command."
                 );
         }
     }

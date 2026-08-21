@@ -4,8 +4,7 @@ public class Command {
 
     private String rawInput;
     private IntentType intent;
-    private String database;
-    private String framework;
+
     private String projectType;
     private String projectName;
 

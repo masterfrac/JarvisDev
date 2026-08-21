@@ -4,45 +4,81 @@ public class IntentRecognizer {
 
     public Command recognize(String input) {
 
-        String text = input.toLowerCase();
+        System.out.println(
+                "[DEBUG] IntentRecognizer received: "
+                        + input
+        );
 
         Command command = new Command();
 
         command.setRawInput(input);
 
-        // Detect Intent
-        if (text.contains("create")) {
+        if (input == null || input.trim().isEmpty()) {
+
+            command.setIntent(IntentType.UNKNOWN);
+
+            return command;
+        }
+
+        String text = input.trim().toLowerCase();
+
+        // ==============================
+        // PROJECT GENERATION
+        // ==============================
+
+        if (text.contains("create")
+                || text.contains("build")
+                || text.contains("generate")
+                || text.contains("make")) {
 
             command.setIntent(
                     IntentType.PROJECT_GENERATION
             );
 
-            // Detect Project Type
-            if (text.contains("spring")) {
+            System.out.println(
+                    "[DEBUG] Intent detected: "
+                            + command.getIntent()
+            );
+
+            // Spring Boot
+            if (text.contains("spring")
+                    || text.contains("spring boot")
+                    || text.contains("backend")
+                    || text.contains("api")) {
+
                 command.setProjectType("spring");
             }
-            else if (text.contains("web")) {
+
+            // React
+            else if (text.contains("react")) {
+
+                command.setProjectType("react");
+            }
+
+            // Web
+            else if (text.contains("website")
+                    || text.contains("web app")
+                    || text.contains("html")) {
+
                 command.setProjectType("web");
             }
-            else {
+
+            // Console
+            else if (text.contains("console")) {
+
                 command.setProjectType("console");
-            }
-
-            // Detect Project Name
-            String[] words =
-                    text.split(" ");
-
-            if (words.length > 0) {
-
-                command.setProjectName(
-                        words[words.length - 1]
-                );
             }
 
             return command;
         }
 
-        if (text.contains("check tools")) {
+        // ==============================
+        // TOOL CHECK
+        // ==============================
+
+        if (text.contains("check tools")
+                || text.contains("check tool")
+                || text.equals("tools")) {
 
             command.setIntent(
                     IntentType.TOOL_CHECK
@@ -50,6 +86,54 @@ public class IntentRecognizer {
 
             return command;
         }
+
+        // ==============================
+        // SYSTEM SCAN
+        // ==============================
+
+        if (text.contains("system scan")
+                || text.contains("scan system")) {
+
+            command.setIntent(
+                    IntentType.SYSTEM_SCAN
+            );
+
+            return command;
+        }
+
+        // ==============================
+        // HELP
+        // ==============================
+
+        if (text.equals("help")
+                || text.contains("what can you do")
+                || text.contains("commands")) {
+
+            command.setIntent(
+                    IntentType.HELP
+            );
+
+            return command;
+        }
+
+        // ==============================
+        // EXIT
+        // ==============================
+
+        if (text.equals("exit")
+                || text.equals("quit")
+                || text.equals("bye")) {
+
+            command.setIntent(
+                    IntentType.EXIT
+            );
+
+            return command;
+        }
+
+        // ==============================
+        // UNKNOWN
+        // ==============================
 
         command.setIntent(
                 IntentType.UNKNOWN
