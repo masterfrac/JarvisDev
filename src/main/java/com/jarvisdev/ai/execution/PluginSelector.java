@@ -31,15 +31,10 @@ public class PluginSelector {
             plugins.add("GitPlugin");
         }
 
-        else if(type.equalsIgnoreCase("react")) {
+        if(type.equalsIgnoreCase("react")) {
 
             plugins.add("ReactPlugin");
             plugins.add("GitPlugin");
-        }
-
-        else if(type.equalsIgnoreCase("docker")) {
-
-            plugins.add("DockerPlugin");
         }
 
         return plugins;

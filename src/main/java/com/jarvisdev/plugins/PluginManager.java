@@ -1,45 +1,34 @@
 package com.jarvisdev.plugins;
 
-import com.jarvisdev.ai.Command;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PluginManager {
 
-    private final List<Plugin> plugins;
+    private final Map<String, Plugin> plugins =
+            new HashMap<>();
 
     public PluginManager() {
 
-        plugins = new ArrayList<>();
+        register(new SpringPlugin());
+        register(new ReactPlugin());
+        register(new MavenPlugin());
+        register(new GitPlugin());
+        register(new DockerPlugin());
     }
 
-    public void registerPlugin(
-            Plugin plugin) {
+    private void register(Plugin plugin) {
 
-        plugins.add(plugin);
+        plugins.put(
+                plugin.getName().toLowerCase(),
+                plugin
+        );
     }
 
-    public void executePlugin(
-            Command command) {
+    public Plugin getPlugin(String name) {
 
-        for (Plugin plugin : plugins) {
-
-            if (plugin.canHandle(command)) {
-
-                System.out.println(
-                        "Using Plugin: "
-                                + plugin.getName()
-                );
-
-                plugin.execute(command);
-
-                return;
-            }
-        }
-
-        System.out.println(
-                "No suitable plugin found."
+        return plugins.get(
+                name.toLowerCase()
         );
     }
 }

@@ -62,10 +62,7 @@ public class AIOrchestrator {
         // 3. Extract Entities
         // --------------------------------
 
-        entityExtractor.extract(
-                input,
-                command
-        );
+        entityExtractor.extract(command);
 
         // --------------------------------
         // 4. Display Understanding

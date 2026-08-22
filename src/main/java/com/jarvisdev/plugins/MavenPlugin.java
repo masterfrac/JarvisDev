@@ -6,16 +6,14 @@ public class MavenPlugin implements Plugin {
 
     @Override
     public String getName() {
-        return "Maven Plugin";
-    }
-
-    @Override
-    public boolean canHandle(Command command) {
-        return true;
+        return "MavenPlugin";
     }
 
     @Override
     public void execute(Command command) {
-        System.out.println("Executing Maven operations...");
+
+        System.out.println(
+                "[MAVEN] Generating pom.xml..."
+        );
     }
 }

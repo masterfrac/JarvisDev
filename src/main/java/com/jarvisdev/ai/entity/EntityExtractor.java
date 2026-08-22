@@ -4,32 +4,39 @@ import com.jarvisdev.ai.Command;
 
 public class EntityExtractor {
 
-    public void extract(
-            String input,
-            Command command) {
+    public void extract(Command command) {
 
-        input = input.toLowerCase();
+        String input = command.getRawInput();
 
-        if (input.contains("spring")) {
-            command.setProjectType("spring");
+        if (input == null || input.isBlank()) {
+            return;
         }
 
-        else if (input.contains("web")) {
-            command.setProjectType("web");
+        String[] words = input.split("\\s+");
+
+        for (String word : words) {
+
+            String w = word.toLowerCase();
+
+            if (w.equals("create")
+                    || w.equals("spring")
+                    || w.equals("boot")
+                    || w.equals("project")
+                    || w.equals("backend")
+                    || w.equals("frontend")
+                    || w.equals("with")
+                    || w.equals("mysql")
+                    || w.equals("docker")) {
+                continue;
+            }
+
+            command.setProjectName(word);
+            break;
         }
 
-        else if (input.contains("console")) {
-            command.setProjectType("console");
-        }
-
-        String[] words =
-                input.split(" ");
-
-        if (words.length > 0) {
-
-            command.setProjectName(
-                    words[words.length - 1]
-            );
-        }
+        System.out.println(
+                "[ENTITY] Project Name = "
+                        + command.getProjectName()
+        );
     }
 }

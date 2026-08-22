@@ -6,16 +6,14 @@ public class GitPlugin implements Plugin {
 
     @Override
     public String getName() {
-        return "Git Plugin";
-    }
-
-    @Override
-    public boolean canHandle(Command command) {
-        return true;
+        return "GitPlugin";
     }
 
     @Override
     public void execute(Command command) {
-        System.out.println("Executing Git operations...");
+
+        System.out.println(
+                "[GIT] Initializing Git repository..."
+        );
     }
 }

@@ -6,7 +6,5 @@ public interface Plugin {
 
     String getName();
 
-    boolean canHandle(Command command);
-
     void execute(Command command);
 }
