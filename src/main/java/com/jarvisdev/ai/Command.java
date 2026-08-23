@@ -1,7 +1,11 @@
 package com.jarvisdev.ai;
 
 public class Command {
-
+    private String framework;
+    private String database;
+    private String container;
+    private String buildTool;
+    private String frontend;
     private String rawInput;
     private IntentType intent;
 
