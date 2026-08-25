@@ -33,7 +33,17 @@ public class EntityExtractor {
             command.setProjectName(word);
             break;
         }
+        if(input.contains("spring")) {
+            command.setFramework("spring");
+        }
 
+        if(input.contains("mysql")) {
+            command.setDatabase("mysql");
+        }
+
+        if(input.contains("docker")) {
+            command.setContainer("docker");
+        }
         System.out.println(
                 "[ENTITY] Project Name = "
                         + command.getProjectName()

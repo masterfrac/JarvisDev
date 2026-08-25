@@ -145,7 +145,20 @@ public class AIOrchestrator {
         commandEngine.execute(
                 command
         );
+        System.out.println(
+                "Framework   : "
+                        + command.getFramework()
+        );
 
+        System.out.println(
+                "Database    : "
+                        + command.getDatabase()
+        );
+
+        System.out.println(
+                "Container   : "
+                        + command.getContainer()
+        );
         System.out.println();
         System.out.println("================================");
         System.out.println("       JARVIS TASK COMPLETE");

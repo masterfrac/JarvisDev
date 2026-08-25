@@ -14,7 +14,29 @@ public class Command {
 
     public Command() {
     }
+    public String getFramework() {
+        return framework;
+    }
 
+    public void setFramework(String framework) {
+        this.framework = framework;
+    }
+
+    public String getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(String database) {
+        this.database = database;
+    }
+
+    public String getContainer() {
+        return container;
+    }
+
+    public void setContainer(String container) {
+        this.container = container;
+    }
     public Command(String rawInput) {
         this.rawInput = rawInput;
     }
