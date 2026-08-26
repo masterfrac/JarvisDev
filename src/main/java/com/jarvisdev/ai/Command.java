@@ -1,42 +1,21 @@
 package com.jarvisdev.ai;
 
 public class Command {
-    private String framework;
-    private String database;
-    private String container;
-    private String buildTool;
-    private String frontend;
+
     private String rawInput;
     private IntentType intent;
 
     private String projectType;
     private String projectName;
 
-    public Command() {
-    }
-    public String getFramework() {
-        return framework;
-    }
+    private String framework;
+    private String database;
+    private String container;
+    private String buildTool;
+    private String frontend;
 
-    public void setFramework(String framework) {
-        this.framework = framework;
-    }
+    public Command() {}
 
-    public String getDatabase() {
-        return database;
-    }
-
-    public void setDatabase(String database) {
-        this.database = database;
-    }
-
-    public String getContainer() {
-        return container;
-    }
-
-    public void setContainer(String container) {
-        this.container = container;
-    }
     public Command(String rawInput) {
         this.rawInput = rawInput;
     }
@@ -71,5 +50,45 @@ public class Command {
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
+    }
+
+    public String getFramework() {
+        return framework;
+    }
+
+    public void setFramework(String framework) {
+        this.framework = framework;
+    }
+
+    public String getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(String database) {
+        this.database = database;
+    }
+
+    public String getContainer() {
+        return container;
+    }
+
+    public void setContainer(String container) {
+        this.container = container;
+    }
+
+    public String getBuildTool() {
+        return buildTool;
+    }
+
+    public void setBuildTool(String buildTool) {
+        this.buildTool = buildTool;
+    }
+
+    public String getFrontend() {
+        return frontend;
+    }
+
+    public void setFrontend(String frontend) {
+        this.frontend = frontend;
     }
 }

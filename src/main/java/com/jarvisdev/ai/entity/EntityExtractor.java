@@ -12,41 +12,48 @@ public class EntityExtractor {
             return;
         }
 
-        String[] words = input.split("\\s+");
+        String lower = input.toLowerCase();
+
+        String[] words = lower.split("\\s+");
 
         for (String word : words) {
 
-            String w = word.toLowerCase();
-
-            if (w.equals("create")
-                    || w.equals("spring")
-                    || w.equals("boot")
-                    || w.equals("project")
-                    || w.equals("backend")
-                    || w.equals("frontend")
-                    || w.equals("with")
-                    || w.equals("mysql")
-                    || w.equals("docker")) {
+            if (word.equals("create")
+                    || word.equals("spring")
+                    || word.equals("boot")
+                    || word.equals("backend")
+                    || word.equals("frontend")
+                    || word.equals("project")
+                    || word.equals("with")
+                    || word.equals("mysql")
+                    || word.equals("docker")
+                    || word.equals("react")
+                    || word.equals("maven")) {
                 continue;
             }
 
             command.setProjectName(word);
             break;
         }
-        if(input.contains("spring")) {
-            command.setFramework("spring");
+
+        if (lower.contains("spring")) {
+            command.setFramework("Spring Boot");
         }
 
-        if(input.contains("mysql")) {
-            command.setDatabase("mysql");
+        if (lower.contains("mysql")) {
+            command.setDatabase("MySQL");
         }
 
-        if(input.contains("docker")) {
-            command.setContainer("docker");
+        if (lower.contains("docker")) {
+            command.setContainer("Docker");
         }
-        System.out.println(
-                "[ENTITY] Project Name = "
-                        + command.getProjectName()
-        );
+
+        if (lower.contains("react")) {
+            command.setFrontend("React");
+        }
+
+        if (lower.contains("maven")) {
+            command.setBuildTool("Maven");
+        }
     }
 }
